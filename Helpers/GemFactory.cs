@@ -34,12 +34,14 @@ namespace Bobix.Helpers
         public Gem Create(Vector2 position, Point positionOnBoard)
         {
             var type = RandomGenerator.GetGemType();
+            var color = RandomGenerator.GetGemColor();
             return new Gem(
                 type, 
-                RandomGenerator.GetGemColor(),
+                color,
                 this.gemsTexture,
                 this.GetTextureRect(type),
-                GameConstants.SpecialTypes.Contains(type) ? this.auraTexture : null,
+                GameConstants.SpecialTypes.Contains(type) || 
+                    (type == GemType.Punisher && color == GemColor.Blue) ? this.auraTexture : null,
                 position,
                 positionOnBoard);
         }

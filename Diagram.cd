@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Mobile.Animations.Aura" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="14.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAEgAAAAAAAAAAABAAAhAAIAAAAgAAAAA=</HashCode>
+      <FileName>Animations\Aura.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sprite" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Mobile.Animations.Blink" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="15.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEIAAAAAAAAAAAAhAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Animations\Blink.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sprite" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Mobile.Animations.HorizontalJiggle" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="11.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAIAAAAAAAAAAAAhAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Animations\HorizontalJiggle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sprite" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Mobile.Animations.MinimizeAndSlideTo" BaseTypeListCollapsed="true">
+    <Position X="4" Y="14.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAACAAAgAAAACQIAACAAAAA4CAIABARAAAAAA=</HashCode>
+      <FileName>Animations\MinimizeAndSlideTo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="equation" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Mobile.Animations.PositionSlideTo">
+    <Position X="2.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAQAAIAAABAAAAAA=</HashCode>
+      <FileName>Animations\PositionSlideTo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mobile.Animations.SlideTo" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="16" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAIAAABAAAAAA=</HashCode>
+      <FileName>Animations\SlideTo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sprite" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Mobile.Animations.TitleDance" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="15.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAEABAAAAAAIAQAAAAAAAA=</HashCode>
+      <FileName>Animations\TitleDance.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sprite" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Mobile.Animations.VerticalJiggle" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="18.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAIAAAAAAAAAAAAhAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Animations\VerticalJiggle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sprite" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Bobix.Definitions.GameConstants">
+    <Position X="22.5" Y="9" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QACAAAIAAAAAACAAQABAAAAAAAAAAAAAJAAAAEAAAAA=</HashCode>
+      <FileName>Definitions\GameConstants.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="SpecialTypes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Bobix.Definitions.GemColor">
+    <Position X="25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAhAAAAAAAAAABAAAAAAAAAAAADAAAAA=</HashCode>
+      <FileName>Definitions\GemColor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mobile.Helpers.Equation">
+    <Position X="1.75" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAACgYAAAAAAAAgA=</HashCode>
+      <FileName>Helpers\Equation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mobile.Helpers.Formula">
+    <Position X="20.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\Formula.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mobile.Helpers.GemEffectsHelper">
+    <Position X="20.5" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAIAAAEAAAA=</HashCode>
+      <FileName>Helpers\GemEffectsHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bobix.Helpers.GemFactory">
+    <Position X="17" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAAAAAAAAAAAARAAAAAEAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Helpers\GemFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bobix.Helpers.RandomGenerator">
+    <Position X="23.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACABAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAA=</HashCode>
+      <FileName>Helpers\RandomGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mobile.Objects.Button">
+    <Position X="3.25" Y="10.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAIAAIAACAAAAAgCAAQAAAAAQAAA=</HashCode>
+      <FileName>Objects\Button.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mobile.Objects.GameHud">
+    <Position X="5.25" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAABgAAQAAYAAAAIABCAEABAAAAgAAAAAQ=</HashCode>
+      <FileName>Objects\GameHud.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="highScoreSlideTo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Mobile.Objects.GameOverMenu">
+    <Position X="0.5" Y="14" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAIAAAAAAgAAAAAIIAAAAQBAAAAAAAgQAAABJAQ=</HashCode>
+      <FileName>Objects\GameOverMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="backButton" />
+      <Field Name="replayButton" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Mobile.Objects.MainMenu">
+    <Position X="9.5" Y="10.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAQCAAIAQAAAAgAAIIAAAAAACAAgkAYAEIABAAgAIgQ=</HashCode>
+      <FileName>Objects\MainMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="exitButton" />
+      <Field Name="gemFactory" />
+      <Field Name="playButton" />
+      <Field Name="titleAnimation" />
+      <Field Name="title" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="animations" />
+      <Field Name="gems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Mobile.Objects.Sprite">
+    <Position X="13" Y="11.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAoAgAAIAAAAAAIAAAAAAAAIAgAgAAEA=</HashCode>
+      <FileName>Objects\Sprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bobix.Objects.Gem">
+    <Position X="16.5" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAYAAAAKABGgAQgRAAAAAAEBEBAgAAgAgAAAAgAAA=</HashCode>
+      <FileName>Objects\Gem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="auraSlideTo" />
+      <Field Name="aura" />
+      <Field Name="blink" />
+      <Field Name="jiggle" />
+      <Field Name="sprite" />
+      <Field Name="type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Bobix.Objects.GemBoard">
+    <Position X="13" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQHQAAARBCAEgRIwIAAYgAACAABCAUAMEAAAEAgKAQ=</HashCode>
+      <FileName>Objects\GemBoard.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="gemFactory" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="board" />
+      <Field Name="drawableAnimations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Bobix.Activity1">
+    <Position X="6.25" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAACAAAAAAAAQ=</HashCode>
+      <FileName>Activity1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_game" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Bobix.Game1">
+    <Position X="9" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AASIAEIQBAgAAwAAAIAAAAAwIABAEAgEMQAQAAAIAAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="gameOverMenu" />
+      <Field Name="gemFactory" />
+      <Field Name="gemBoard" />
+      <Field Name="mainMenu" />
+      <Field Name="gameHud" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Mobile.Animations.IAnimation">
+    <Position X="16.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Animations\IAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Mobile.Animations.IDrawableAnimation">
+    <Position X="16.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animations\IDrawableAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Bobix.Definitions.Direction">
+    <Position X="21.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Definitions\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Bobix.Definitions.GemType">
+    <Position X="19.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SYyAACAAIIgAMARJEAoAwQBIAAAcEgAAFQAEEAAAQGM=</HashCode>
+      <FileName>Definitions\GemType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Mobile.Definitions.GameState">
+    <Position X="23.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAEAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Definitions\GameState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -43,7 +43,7 @@ namespace Bobix.Objects
             this.sprite.Position = position;
             this.sprite.Scale = GameConstants.GemScale;
 
-            this.scoreValue = 500;
+            this.scoreValue = 167;
 
             if (auraTexture != null)
             {

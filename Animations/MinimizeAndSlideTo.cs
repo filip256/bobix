@@ -28,8 +28,9 @@ namespace Mobile.Animations
         private int speed;
         private float rotationSpeed;
         private Equation equation;
+        private bool reverseSpin;
 
-        public MinimizeAndSlideTo(Sprite sprite, Vector2 destination, int speed)
+        public MinimizeAndSlideTo(Sprite sprite, Vector2 destination, int speed, bool reverseSpin)
         {
             this.texture = sprite.Texture;
             this.textureRect = sprite.TextureRect;
@@ -46,6 +47,8 @@ namespace Mobile.Animations
             this.speed = speed;
             this.rotationSpeed = speed / 300.0f;
             this.equation = new Equation(position, destination);
+
+            this.reverseSpin = reverseSpin;
         }
 
         public bool Step()
@@ -56,9 +59,14 @@ namespace Mobile.Animations
             position.Y += position.Y < destination.Y? speed : - speed;
             position.X = equation.GetX(position.Y);
 
-            rotation += rotationSpeed;
+            rotation += rotationSpeed * (reverseSpin ? -1 : 1);
 
             return true;
+        }
+
+        public Vector2 GetPosition()
+        {
+            return position;
         }
 
         public void Draw(SpriteBatch spriteBatch)

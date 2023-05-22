@@ -31,8 +31,9 @@ namespace Bobix.Objects
         private bool modified = false;
 
         private ContentManager content;
-        private Texture2D gridTexture;
-        private Texture2D gridBoxTexture;
+        private Texture2D background;
+        private Vector2 backgroundScale;
+        //private Texture2D gridBoxTexture;
         private Texture2D selectedTexture;
         private Vector2 position;
 
@@ -41,28 +42,35 @@ namespace Bobix.Objects
         private List<IDrawableAnimation> drawableAnimations;
 
         private readonly Stopwatch gameClock;
-        private int lastMatchTime = 0;
+        private int lastMatchTime;
+
+        private readonly Point windowSize;
 
 
-        public GemBoard(ContentManager content, Stopwatch gameClock, GemFactory gemFactory, Vector2 position)
+        public GemBoard(ContentManager content, Stopwatch gameClock, GemFactory gemFactory, Vector2 position, Point windowSize)
         {
             this.content = content;
             this.gameClock = gameClock;
             this.gemFactory = gemFactory;
-            this.position = position;
+            this.position = new Vector2(position.X, position.Y - GameConstants.GemHeightOnScreen * GameConstants.BoardHeight);
 
             this.width = GameConstants.BoardWidth;
             this.height = 2 * GameConstants.BoardHeight;
             this.visibleHeight = GameConstants.BoardHeight;
 
             this.drawableAnimations = new List<IDrawableAnimation>();
+            this.windowSize = windowSize;
+
+            this.lastMatchTime = 0;
         }
 
         public void LoadContent()
         {
-            gridTexture = content.Load<Texture2D>("grid_texture");
+            background = content.Load<Texture2D>("background");
+            backgroundScale = new Vector2(windowSize.X / background.Width, windowSize.Y / background.Height);
+
             selectedTexture = content.Load<Texture2D>("grid_box");
-            gridBoxTexture = content.Load<Texture2D>("selected");
+            //gridBoxTexture = content.Load<Texture2D>("selected");
         }
 
         public void Fill()
@@ -161,7 +169,7 @@ namespace Bobix.Objects
             return score;
         }
 
-        public void Update(bool isStartup = false)
+        public bool Update(bool isStartup = false)
         {
             if (isStartup == false)
             {
@@ -184,10 +192,14 @@ namespace Bobix.Objects
                     var found = this.FindPossibleMatch();
                     if (found == null)
                     {
-                        //exit
+                        return false;
                     }
                     board[found.Value.Y, found.Value.X].StartHorizontalJiggle(3);
                 }
+            }
+            else
+            {
+                this.lastMatchTime = (int)gameClock.Elapsed.TotalSeconds;
             }
 
             while (modified)
@@ -202,23 +214,24 @@ namespace Bobix.Objects
                     for (int j = 0; j < width; ++j)
                         this.GemFall(j, i, isStartup);
             }
+            return true;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(gridTexture, position, null, Color.White, 0.0f, Vector2.Zero, 2.6f, SpriteEffects.None, 0.0f);
-
-            for (int i = 0; i < height; ++i)
-                for (int j = 0; j < width; ++j)
-                {
-                    spriteBatch.Draw(gridBoxTexture, GetPositionFromIndex(j, i), null, Color.White, 0.0f, Vector2.Zero, GameConstants.GemScale / 2.0f, SpriteEffects.None, 0.0f);
-                    if (board[i, j] != null)
-                        board[i, j].Draw(spriteBatch);
-                }
+            spriteBatch.Draw(background, Vector2.Zero, null, Color.White, 0.0f, Vector2.Zero, backgroundScale, SpriteEffects.None, 0.0f);
 
             var selected = GetSelected();
             if (selected != null)
-                spriteBatch.Draw(selectedTexture, selected.GetPosition(), null, Color.White, 0.0f, Vector2.Zero, GameConstants.GemScale / 2.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(selectedTexture, selected.GetPosition(), null, new Color(255, 218, 185, 150), 0.0f, Vector2.Zero, GameConstants.GemScale, SpriteEffects.None, 0.0f);
+
+            for (int i = visibleHeight; i < height; ++i)
+                for (int j = 0; j < width; ++j)
+                {
+                    //spriteBatch.Draw(gridBoxTexture, GetPositionFromIndex(j, i), null, Color.White, 0.0f, Vector2.Zero, GameConstants.GemScale / 2.0f, SpriteEffects.None, 0.0f);
+                    if (board[i, j] != null)
+                        board[i, j].Draw(spriteBatch);
+                }
 
             for (int i = 0; i < drawableAnimations.Count(); ++i)
             {
@@ -348,11 +361,17 @@ namespace Bobix.Objects
 
             scoreAccumulator += board[y, x].GetScoreValue() * multiplier;
 
-            drawableAnimations.Add(
-                new MinimizeAndSlideTo(board[y, x].GetSprite(),
-                new Vector2(300, 100),
-                20 + RandomGenerator.GetInt(20))
-                );
+            if (y >= visibleHeight)
+            {
+                drawableAnimations.Add(
+                    new MinimizeAndSlideTo(
+                        board[y, x].GetSprite(),
+                        new Vector2(300, 100),
+                        20 + RandomGenerator.GetInt(20),
+                        RandomGenerator.GetInt(2) == 0
+                        )
+                    );
+            }
 
             var type = board[y, x].GetGemType();
             var color = board[y, x].GetSprite().Color;
@@ -381,26 +400,11 @@ namespace Bobix.Objects
                 for (int i = 0; i < affected.Count(); ++i)
                     RemoveGem(affected[i].X, affected[i].Y, multiplier);
             }
-            else if (type == GemType.HappyMask)
+            else if (type == GemType.Punisher && color == GemColor.Blue)
             {
-                var affected = GemEffectsHelper.GetRandomArea(width * height / 5, width, height);
+                var affected = GemEffectsHelper.GetGrenadeArea(x, y, width, height, 5);
                 for (int i = 0; i < affected.Count(); ++i)
-                    RemoveGem(affected[i].X, affected[i].Y, multiplier);
-            }
-            else if (type == GemType.Punisher)
-            {
-                if (color == GemColor.Blue)
-                {
-                    var affected = GemEffectsHelper.GetGrenadeArea(x, y, width, height, 5);
-                    for (int i = 0; i < affected.Count(); ++i)
-                        RemoveGem(affected[i].X, affected[i].Y, multiplier * 2);
-                }
-                else
-                {
-                    var affected = GemEffectsHelper.GetGrenadeArea(x, y, width, height, 4);
-                    for (int i = 0; i < affected.Count(); ++i)
-                        RemoveGem(affected[i].X, affected[i].Y, multiplier);
-                }
+                    RemoveGem(affected[i].X, affected[i].Y, multiplier * 10);
             }
         }
 

@@ -24,6 +24,8 @@ namespace Bobix
 
         protected override void OnCreate(Bundle bundle)
         {
+            Window.DecorView.SystemUiVisibility = (StatusBarVisibility) SystemUiFlags.HideNavigation;
+
             base.OnCreate(bundle);
 
             _game = new Game1();

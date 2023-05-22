@@ -28,8 +28,11 @@ namespace Bobix.Helpers
         {
             var values = Enum.GetValues(typeof(GemType));
             var type = (GemType)values.GetValue(rng.Next(Enum.GetValues(typeof(GemType)).Length));
+            
+            if(type == GemType.Punisher && GetInt(3) != 0)
+                type = (GemType)values.GetValue(rng.Next(Enum.GetValues(typeof(GemType)).Length));
 
-            if (GetInt(2) == 0 && GameConstants.SpecialTypes.Contains(type))
+            if (GetInt(3) != 0 && GameConstants.SpecialTypes.Contains(type))
                 return (GemType)values.GetValue(rng.Next(Enum.GetValues(typeof(GemType)).Length));
 
             return type;
@@ -37,7 +40,7 @@ namespace Bobix.Helpers
 
         public static Color GetGemColor()
         {
-            switch(rng.Next(8))
+            switch(rng.Next(7))
             {
                 case 0: return GemColor.Red;
                 case 1: return GemColor.Green;

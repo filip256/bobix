@@ -38,13 +38,12 @@ namespace Mobile.Objects
         public bool Contains(Vector2 point)
         {
             int halfHeight = (int)(size.Y / 2);
-            Rectangle r = new Rectangle((int)(position.X + halfHeight), (int)position.Y, (int)(size.X - size.Y), (int)size.Y);
-            Point c1 = new Point((int)(position.X + halfHeight), (int)(position.Y + halfHeight));
-            Point c2 = new Point((int)(position.X + size.X - halfHeight), (int)(position.Y + halfHeight));
 
-            return r.Contains(point) ||
-                Formula.SquaredDistance(point.X, point.Y, c1.X, c1.Y) <= halfHeight * halfHeight ||
-                Formula.SquaredDistance(point.X, point.Y, c2.X, c2.Y) <= halfHeight * halfHeight;
+            return (point.X >= position.X + halfHeight && point.Y >= position.Y &&
+                    point.X <= position.X + halfHeight + size.X - size.Y && 
+                    point.Y <= position.Y + size.Y) ||
+                Formula.SquaredDistance(point.X, point.Y, position.X + halfHeight, position.Y + halfHeight) <= halfHeight * halfHeight ||
+                Formula.SquaredDistance(point.X, point.Y, position.X + size.X - halfHeight, position.Y + halfHeight) <= halfHeight * halfHeight;
         }
 
         public void Draw(SpriteBatch spriteBatch)

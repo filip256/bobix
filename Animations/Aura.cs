@@ -20,6 +20,7 @@ namespace Mobile.Animations
         private static readonly float scaleStep = GameConstants.GemScale * 0.026f;
         private Sprite sprite;
         private bool scaleUp = true;
+        private float scaleRand = 0.5f + RandomGenerator.GetFloat();
 
         public Aura(Sprite sprite, Color color)
         {
@@ -33,28 +34,29 @@ namespace Mobile.Animations
                 Origin = new Vector2(GameConstants.GemTextureWidth / 2.0f, GameConstants.GemTextureHeight / 2.0f),
                 Position = sprite.Position + new Vector2(GameConstants.GemTextureWidth / 2.0f, GameConstants.GemTextureHeight / 2.0f) * sprite.Scale
             };
+            this.sprite.Scale *= scaleRand;
         }
 
         public Sprite GetSprite() { return this.sprite; }
 
         public void SetPosition(Vector2 position) 
         {
-            this.sprite.Position = position + new Vector2(GameConstants.GemTextureWidth / 2, GameConstants.GemTextureHeight / 2) * sprite.Scale / 2;
+            this.sprite.Position = position + new Vector2(GameConstants.GemTextureWidth / 2, GameConstants.GemTextureHeight / 2) * (sprite.Scale / scaleRand) / 2;
         }
 
         public bool Step()
         {
-            sprite.Rotation += Aura.scaleStep;
+            sprite.Rotation += scaleStep;
 
             if (scaleUp)
             {
-                sprite.Scale += 0.05f;
+                sprite.Scale += scaleStep;
                 if(sprite.Scale > GameConstants.GemScale * 2.4)
                     scaleUp = false;
             }
             else
             {
-                sprite.Scale -= Aura.scaleStep;
+                sprite.Scale -= scaleStep;
                 if (sprite.Scale < GameConstants.GemScale * 1.3)
                     scaleUp = true;
             }

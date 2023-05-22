@@ -73,10 +73,10 @@ namespace Mobile.Helpers
             for (int i = 0; i < height; ++i)
             {
                 area.Add(new Point(x, i));
-                if (x > 0)
-                    area.Add(new Point(x - 1, i));
-                if (x < width - 1)
-                    area.Add(new Point(x + 1, i));
+                //if (x > 0)
+                //    area.Add(new Point(x - 1, i));
+                //if (x < width - 1)
+                //    area.Add(new Point(x + 1, i));
             }
             return area;
         }

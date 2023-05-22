@@ -9,6 +9,7 @@ namespace Mobile.Definitions
     public enum GameState
     {
         InMainMenu,
-        InGame
+        InGame,
+        InGameOver
     }
 }
